@@ -21,6 +21,17 @@ module OmniAuth
 
       option :name, 'windowslive'
 
+      def request_call
+        session['omniauth.windowslive.state'] = request.params['state'] if request.params['state']
+        super
+      end
+
+      def callback_phase
+        request.params['state']             = session['omniauth.state']
+        request.params['windowslive.state'] = session['omniauth.windowslive.state']
+        super
+      end
+
       uid { raw_info['id'] }
 
       # http://msdn.microsoft.com/en-us/library/hh243648.aspx
