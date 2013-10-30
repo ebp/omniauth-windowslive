@@ -42,6 +42,7 @@ module OmniAuth
           'first_name' => raw_info['first_name'],
           'last_name' => raw_info['last_name'],
           'gender' => raw_info['gender'],
+          'email'  => (raw_info['emails']['account'] rescue nil),
           'link' => raw_info['link'],
           'locale' => raw_info['locale'],
           'updated_time' => raw_info['updated_time']
