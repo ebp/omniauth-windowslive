@@ -38,7 +38,7 @@ module OmniAuth
       info do
         {
           'id' => raw_info['id'],
-          'email' => email_parser,
+          'emails' => emails_parser,
           'name' => raw_info['name'],
           'first_name' => raw_info['first_name'],
           'last_name' => raw_info['last_name'],
@@ -64,7 +64,7 @@ module OmniAuth
 
       private
 
-      def email_parser
+      def emails_parser
         emails = raw_info['emails']
         emails_parsed = []
 
